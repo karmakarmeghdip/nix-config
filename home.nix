@@ -6,6 +6,7 @@
     ./modules/hyprland.nix
     ./modules/waybar.nix
     ./modules/hyprlauncher.nix
+    ./modules/mako.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -25,6 +26,7 @@
     helix
     nodejs
     bun
+    gemini-cli-bin
 
     # CLI utilities
     aria2
