@@ -19,6 +19,7 @@
     cmake
     ninja
     nodejs
+    bun
     dotnet-sdk
     gjs
     gtk3
@@ -31,6 +32,7 @@
     typst
     zsync
     fx # JSON viewer
+    vivid # LS_COLORS generator
 
     # Container/VM tools
     distrobox
@@ -45,10 +47,6 @@
 
   # Shell aliases (applied to all shells)
   home.shellAliases = {
-    # ls = "lsd";
-    # ll = "lsd -l";
-    # la = "lsd -la";
-    # lt = "lsd --tree";
     cat = "bat";
     top = "btop";
     lg = "lazygit";
@@ -161,10 +159,12 @@
         };
       };
       git = {
-        paging = {
-          colorArg = "always";
-          pager = "delta --dark --paging=never";
-        };
+        pagers = [
+          {
+            colorArg = "always";
+            pager = "delta --dark --paging=never";
+          }
+        ];
       };
     };
   };
@@ -250,10 +250,76 @@
     historyFileSize = 20000;
   };
 
+  # Fish shell
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      # Disable greeting
+      set -g fish_greeting
+
+      # Vi mode
+      fish_vi_key_bindings
+
+      # Better colors for ls
+      set -gx LS_COLORS "$(vivid generate catppuccin-mocha 2>/dev/null || echo "")"
+    '';
+    shellAbbrs = {
+      # Git abbreviations (expand on space)
+      gs = "git status";
+      ga = "git add";
+      gc = "git commit";
+      gp = "git push";
+      gl = "git pull";
+      gd = "git diff";
+      gco = "git checkout";
+      gb = "git branch";
+      # Home Manager stuff
+      hms = "home-manager switch";
+    };
+    functions = {
+      # Quick directory creation and cd
+      mkcd = "mkdir -p $argv[1] && cd $argv[1]";
+      # Extract various archive formats
+      extract = ''
+        switch $argv[1]
+          case '*.tar.bz2'
+            tar xjf $argv[1]
+          case '*.tar.gz'
+            tar xzf $argv[1]
+          case '*.bz2'
+            bunzip2 $argv[1]
+          case '*.rar'
+            unrar x $argv[1]
+          case '*.gz'
+            gunzip $argv[1]
+          case '*.tar'
+            tar xf $argv[1]
+          case '*.tbz2'
+            tar xjf $argv[1]
+          case '*.tgz'
+            tar xzf $argv[1]
+          case '*.zip'
+            unzip $argv[1]
+          case '*.Z'
+            uncompress $argv[1]
+          case '*.7z'
+            7z x $argv[1]
+          case '*'
+            echo "Cannot extract '$argv[1]'"
+        end
+      '';
+    };
+    plugins = [
+      # Fish plugins can be added here
+      # { name = "z"; src = pkgs.fishPlugins.z.src; }
+    ];
+  };
+
   # Direnv - directory-specific environments
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
+    enableFishIntegration = true;
     nix-direnv.enable = true;
   };
 
@@ -261,6 +327,7 @@
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
+    enableFishIntegration = true;
     defaultOptions = [
       "--height 40%"
       "--layout=reverse"
@@ -283,18 +350,19 @@
     themeFile = "Catppuccin-Mocha";
   };
 
-  # Starship prompt (optional, uncomment if desired)
-  # programs.starship = {
-  #   enable = true;
-  #   enableBashIntegration = true;
-  #   settings = {
-  #     add_newline = true;
-  #     character = {
-  #       success_symbol = "[➜](bold green)";
-  #       error_symbol = "[✗](bold red)";
-  #     };
-  #   };
-  # };
+  # Starship prompt
+  programs.starship = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    settings = {
+      add_newline = true;
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[✗](bold red)";
+      };
+    };
+  };
 
   # ─────────────────────────────────────────────────────────────
   # Wayland / Hyprland
@@ -395,4 +463,6 @@
       };
     };
   };
+
+  targets.genericLinux.enable = true;
 }
