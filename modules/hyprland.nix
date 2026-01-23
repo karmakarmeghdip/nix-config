@@ -4,10 +4,12 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      # Monitor config
+      monitor = "HDMI-A-2, 2560x1440@120, 0x0, 1";
+      
       # Startup applications
       exec-once = [
         "waybar"
-        "hyprlauncher -d"  # Start daemon without opening window
       ];
 
       # Basic Hyprland configuration
