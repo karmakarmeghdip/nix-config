@@ -23,7 +23,7 @@
       bind = [
         "$mod, Return, exec, kitty"
         "$mod, Q, killactive"
-        "$mod, D, exec, hyprlauncher" # Application launcher
+        "$mod, D, exec, fuzzel" # Application launcher
         "$mod, M, exit"
         "$mod, V, togglefloating"
         "$mod, P, pseudo"

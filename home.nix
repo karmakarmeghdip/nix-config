@@ -5,7 +5,7 @@
   imports = [
     ./modules/hyprland.nix
     ./modules/waybar.nix
-    ./modules/hyprlauncher.nix
+    ./modules/fuzzel.nix
     ./modules/mako.nix
   ];
 
@@ -382,6 +382,8 @@
       };
     };
   };
+
+  services.network-manager-applet.enable = true;
 
   targets.genericLinux.enable = true;
 }
