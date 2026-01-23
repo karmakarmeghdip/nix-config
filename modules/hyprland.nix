@@ -4,12 +4,19 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      # Startup applications
+      exec-once = [
+        "waybar"
+        "hyprlauncher -d"  # Start daemon without opening window
+      ];
+
       # Basic Hyprland configuration
       # Customize these according to your preferences
       "$mod" = "SUPER";
       bind = [
         "$mod, Return, exec, kitty"
         "$mod, Q, killactive"
+        "$mod, D, exec, hyprlauncher"  # Application launcher
         "$mod, M, exit"
         "$mod, V, togglefloating"
         "$mod, P, pseudo"

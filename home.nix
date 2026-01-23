@@ -5,6 +5,7 @@
   imports = [
     ./modules/hyprland.nix
     ./modules/waybar.nix
+    ./modules/hyprlauncher.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
