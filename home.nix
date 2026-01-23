@@ -382,15 +382,16 @@
       enable = true;
       createDirectories = true;
     };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.hyprland = {
-      default = [
-        "hyprland"
-        "gtk"
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-hyprland
       ];
+      config.hyprland = {
+        default = [
+          "hyprland"
+        ];
+      };
     };
     mimeApps = {
       enable = true;
