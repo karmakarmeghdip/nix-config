@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
   wayland.windowManager.hyprland = {
@@ -6,10 +10,11 @@
     settings = {
       # Monitor config
       monitor = "HDMI-A-2, 2560x1440@120, 0x0, 1";
-      
+
       # Startup applications
       exec-once = [
         "waybar"
+        "mako"
       ];
 
       # Basic Hyprland configuration
@@ -18,7 +23,7 @@
       bind = [
         "$mod, Return, exec, kitty"
         "$mod, Q, killactive"
-        "$mod, D, exec, hyprlauncher"  # Application launcher
+        "$mod, D, exec, hyprlauncher" # Application launcher
         "$mod, M, exit"
         "$mod, V, togglefloating"
         "$mod, P, pseudo"
@@ -59,8 +64,6 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
       };
       decoration = {

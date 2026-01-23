@@ -8,10 +8,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      };
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    { nixpkgs, home-manager, catppuccin, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -25,7 +29,10 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          catppuccin.homeModules.catppuccin
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

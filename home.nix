@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, catppuccin, ... }:
 
 {
   # Import modular configurations
@@ -42,6 +42,8 @@
     distrobox
     lazydocker
   ];
+
+  catppuccin.enable = true;
 
   # Session variables
   home.sessionVariables = {
@@ -95,7 +97,6 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "TwoDark";
       pager = "less -FR";
     };
   };
@@ -104,7 +105,6 @@
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "Default";
       theme_background = false;
       vim_keys = true;
       rounded_corners = true;
@@ -186,10 +186,6 @@
         "date"
         "name"
       ];
-      color = {
-        when = "auto";
-        theme = "default";
-      };
       date = "relative";
       dereference = false;
       icons = {
