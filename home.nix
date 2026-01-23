@@ -1,4 +1,9 @@
-{ config, pkgs, catppuccin, ... }:
+{
+  config,
+  pkgs,
+  catppuccin,
+  ...
+}:
 
 {
   # Import modular configurations
@@ -41,6 +46,9 @@
     # Container/VM tools
     distrobox
     lazydocker
+
+    # System tools
+    blueman
   ];
 
   catppuccin.enable = true;
@@ -374,6 +382,16 @@
       enable = true;
       createDirectories = true;
     };
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.hyprland = {
+      default = [
+        "hyprland"
+        "gtk"
+      ];
+    };
     mimeApps = {
       enable = true;
       defaultApplications = {
@@ -384,6 +402,7 @@
   };
 
   services.network-manager-applet.enable = true;
+  services.blueman-applet.enable = true;
 
   targets.genericLinux.enable = true;
 }
