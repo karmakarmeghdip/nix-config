@@ -15,7 +15,6 @@
       exec-once = [
         "waybar"
         "mako"
-        # "hyprpaper"
         "/usr/libexec/kf6/polkit-kde-authentication-agent-1"
       ];
 
@@ -35,6 +34,7 @@
         "$mod, D, exec, fuzzel" # Application launcher
         "$mod, M, exit"
         "$mod, V, togglefloating"
+        "$mod, F, fullscreen"
         "$mod, P, pseudo"
         "$mod, J, togglesplit"
         # Move focus
@@ -64,6 +64,9 @@
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
+
+        # Screenshots
+        "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
       ];
       bindm = [
         "$mod, mouse:272, movewindow"

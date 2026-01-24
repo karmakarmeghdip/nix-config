@@ -50,6 +50,9 @@
 
     # System tools
     blueman
+    grim
+    slurp
+    wl-clipboard
   ];
 
   catppuccin.enable = true;
@@ -113,7 +116,6 @@
   # Btop - resource monitor
   programs.btop = {
     enable = true;
-    package = pkgs.emptyDirectory;
     settings = {
       theme_background = false;
       vim_keys = true;
@@ -371,6 +373,11 @@
         error_symbol = "[✗](bold red)";
       };
     };
+  };
+
+  # Vscode
+  programs.vscode = {
+    enable = true;
   };
 
   # ─────────────────────────────────────────────────────────────
