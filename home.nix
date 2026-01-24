@@ -12,6 +12,7 @@
     ./modules/waybar.nix
     ./modules/fuzzel.nix
     ./modules/mako.nix
+    ./modules/hyprpaper.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

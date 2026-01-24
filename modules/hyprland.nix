@@ -15,6 +15,7 @@
       exec-once = [
         "waybar"
         "mako"
+        # "hyprpaper"
         "/usr/libexec/kf6/polkit-kde-authentication-agent-1"
       ];
 
