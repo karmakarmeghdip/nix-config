@@ -19,6 +19,13 @@
         "/usr/libexec/kf6/polkit-kde-authentication-agent-1"
       ];
 
+      env = [
+        "HYPRCURSOR_THEME,Lilith_hyprcursor"
+        "HYPRCURSOR_SIZE,32"
+        "XCURSOR_THEME,Lilith_XCursor"
+        "XCURSOR_SIZE,32"
+      ];
+
       # Basic Hyprland configuration
       # Customize these according to your preferences
       "$mod" = "SUPER";
