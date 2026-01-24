@@ -113,6 +113,7 @@
   # Btop - resource monitor
   programs.btop = {
     enable = true;
+    package = pkgs.emptyDirectory;
     settings = {
       theme_background = false;
       vim_keys = true;
@@ -356,7 +357,6 @@
       window_padding_width = 4;
       scrollback_lines = 10000;
     };
-    themeFile = "Catppuccin-Mocha";
   };
 
   # Starship prompt
