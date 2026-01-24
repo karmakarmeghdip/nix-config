@@ -13,6 +13,7 @@
     ./modules/fuzzel.nix
     ./modules/mako.nix
     ./modules/hyprpaper.nix
+    ./modules/helix.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -29,7 +30,6 @@
     # Development tools
     nixd
     nixfmt
-    helix
     nodejs
     bun
     gemini-cli-bin
@@ -56,12 +56,6 @@
   ];
 
   catppuccin.enable = true;
-
-  # Session variables
-  home.sessionVariables = {
-    EDITOR = "hx";
-    VISUAL = "hx";
-  };
 
   # Shell aliases (applied to all shells)
   home.shellAliases = {
