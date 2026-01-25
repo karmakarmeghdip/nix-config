@@ -47,7 +47,6 @@
 
         memory = {
           format = "{used:0.1f}G/{total:0.1f}G ";
-          interval = 1;
         };
 
         battery = {
@@ -96,7 +95,7 @@
     # Style
     style = ''
       * {
-        font-size: 20px;
+        font-size: 18px;
         min-height: 0;
       }
 
