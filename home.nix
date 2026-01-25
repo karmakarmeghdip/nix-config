@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  catppuccin,
   ...
 }:
 
@@ -280,7 +279,7 @@
       gco = "git checkout";
       gb = "git branch";
       # Home Manager stuff
-      hms = "home-manager switch";
+      nrs = "sudo nixos-rebuild switch --flake ~/nix-config";
     };
     functions = {
       # Quick directory creation and cd
@@ -374,38 +373,7 @@
     enable = true;
   };
 
-  # ─────────────────────────────────────────────────────────────
-  # XDG directories
-  # ─────────────────────────────────────────────────────────────
-
-  xdg = {
-    enable = true;
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-    };
-    portal = {
-      enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-hyprland
-      ];
-      config.hyprland = {
-        default = [
-          "hyprland"
-        ];
-      };
-    };
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "video/*" = [ "mpv.desktop" ];
-        "audio/*" = [ "mpv.desktop" ];
-      };
-    };
-  };
 
   services.network-manager-applet.enable = true;
   services.blueman-applet.enable = true;
-
-  targets.genericLinux.enable = true;
 }

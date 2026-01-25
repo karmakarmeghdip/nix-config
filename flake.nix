@@ -1,8 +1,7 @@
 {
-  description = "Home Manager configuration of meghdip";
+  description = "NixOS configuration of meghdip";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,27 +14,29 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, catppuccin, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in
+    { nixpkgs, home-manager, catppuccin, ... }@inputs:
     {
-      homeConfigurations."meghdip" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          ./home.nix
-          catppuccin.homeModules.catppuccin
-        ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hardware-configuration.nix
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.meghdip = {
+              imports = [
+                ./home.nix
+                catppuccin.homeManagerModules.catppuccin
+              ];
+            };
+          }
+          ];
+        };
       };
     };
 }
