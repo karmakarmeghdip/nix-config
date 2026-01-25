@@ -12,7 +12,7 @@
           monitor = "HDMI-A-2";
           path = "~/Pictures/Wallpaper";
           fit_mode = "fill";
-          timeout = 300;
+          timeout = 1800;
         }
       ];
     };
