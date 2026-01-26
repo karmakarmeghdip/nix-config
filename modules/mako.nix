@@ -6,7 +6,6 @@
 
     settings = {
       # Appearance
-      font = "JetBrainsMono Nerd Font 12";
       background-color = "#1e1e2eff"; # Catppuccin Mocha Base
       text-color = "#cdd6f4ff"; # Catppuccin Mocha Text
       border-color = "#89b4faff"; # Catppuccin Mocha Blue

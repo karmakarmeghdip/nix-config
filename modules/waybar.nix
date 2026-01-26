@@ -4,6 +4,8 @@
   programs.waybar = {
     enable = true;
 
+    systemd.enable = true;
+
     # Waybar settings
     settings = {
       mainBar = {

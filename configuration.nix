@@ -39,10 +39,7 @@
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;  
-
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
+  
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -58,13 +55,11 @@
     uid = 1000;
     home = "/home/mkarmakar";
     description = "Meghdip Karmakar";
+    shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
-  # programs.firefox.enable = true;
-
   # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
@@ -79,9 +74,16 @@
     binfmt = true;
   };
 
+  programs.fish.enable = true;
+
   programs.hyprland.enable = true;
 
   virtualisation.podman.enable = true;
+
+
+  nixpkgs.config.allowUnfree = true;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

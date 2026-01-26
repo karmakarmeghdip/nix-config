@@ -11,13 +11,9 @@
       # Monitor config
       monitor = "HDMI-A-2, 2560x1440@120, 0x0, 1";
 
-      # Startup applications
       exec-once = [
-        "waybar"
-        "mako"
-        "/usr/libexec/kf6/polkit-kde-authentication-agent-1"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       ];
-
       env = [
         "HYPRCURSOR_THEME,Lilith_hyprcursor"
         "HYPRCURSOR_SIZE,32"

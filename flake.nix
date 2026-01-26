@@ -31,7 +31,7 @@
             home-manager.users.meghdip = {
               imports = [
                 ./home.nix
-                catppuccin.homeManagerModules.catppuccin
+                catppuccin.homeModules.catppuccin
               ];
             };
           }
