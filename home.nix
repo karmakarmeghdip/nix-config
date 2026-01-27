@@ -32,6 +32,7 @@
     nodejs
     bun
     gemini-cli-bin
+    zed-editor
 
     # CLI utilities
     aria2

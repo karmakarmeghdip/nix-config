@@ -74,9 +74,30 @@
     binfmt = true;
   };
 
+  programs.steam = {
+    enable = true;
+    
+  };
+
   programs.fish.enable = true;
 
   programs.hyprland.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+    ];
+    config = {
+      common = {
+        default = [ "gtk" ];
+      };
+      hyprland = {
+        default = [ "hyprland" "gtk" ];
+      };
+    };
+  };
 
   virtualisation.podman.enable = true;
 
