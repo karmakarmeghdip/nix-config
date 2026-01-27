@@ -33,6 +33,7 @@
     bun
     gemini-cli-bin
     zed-editor
+    antigravity
 
     # CLI utilities
     aria2

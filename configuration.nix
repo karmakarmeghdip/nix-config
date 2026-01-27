@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   # Use the systemd-boot EFI boot loader.
@@ -38,8 +43,8 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;  
-  
+  services.desktopManager.plasma6.enable = true;
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -56,7 +61,10 @@
     home = "/home/mkarmakar";
     description = "Meghdip Karmakar";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ]; # Enable ‘sudo’ for the user.
   };
 
   # List packages installed in system profile.
@@ -74,9 +82,17 @@
     binfmt = true;
   };
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+    ];
+  };
+
   programs.steam = {
     enable = true;
-    
+
   };
 
   programs.fish.enable = true;
@@ -94,17 +110,22 @@
         default = [ "gtk" ];
       };
       hyprland = {
-        default = [ "hyprland" "gtk" ];
+        default = [
+          "hyprland"
+          "gtk"
+        ];
       };
     };
   };
 
   virtualisation.podman.enable = true;
 
-
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -150,4 +171,3 @@
   system.stateVersion = "26.05"; # Did you read the comment?
 
 }
-
