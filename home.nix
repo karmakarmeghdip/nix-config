@@ -13,6 +13,7 @@
     ./modules/mako.nix
     ./modules/hyprpaper.nix
     ./modules/helix.nix
+    ./modules/hyprlock.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -375,7 +376,6 @@
   programs.vscode = {
     enable = true;
   };
-
 
   services.network-manager-applet.enable = true;
   services.blueman-applet.enable = true;

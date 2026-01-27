@@ -32,6 +32,7 @@
         "$mod, Q, killactive"
         "$mod, D, exec, fuzzel" # Application launcher
         "$mod, M, exit"
+        "$mod, L, exec, hyprlock"
         "$mod, V, togglefloating"
         "$mod, F, fullscreen"
         "$mod, P, pseudo"
