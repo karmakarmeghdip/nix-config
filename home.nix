@@ -34,6 +34,7 @@
     gemini-cli-bin
     zed-editor
     antigravity
+    opencode
 
     # CLI utilities
     aria2
