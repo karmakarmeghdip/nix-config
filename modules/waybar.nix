@@ -106,7 +106,7 @@
       }
 
       #workspaces {
-        background: @surface0;
+        background: transparent;
         margin: 5px;
         padding: 0 5px;
         border-radius: 16px;
@@ -159,7 +159,7 @@
         margin: 5px 2px;
         color: @text;
         border-radius: 16px;
-        background: @surface0;
+        background: transparent;
       }
 
       #window {
@@ -206,7 +206,7 @@
       }
 
       #tray {
-        background: @surface0;
+        background: transparent;
       }
     '';
   };

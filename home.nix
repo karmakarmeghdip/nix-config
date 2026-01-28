@@ -14,6 +14,7 @@
     ./modules/hyprpaper.nix
     ./modules/helix.nix
     ./modules/hyprlock.nix
+    ./modules/kitty.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -342,20 +343,6 @@
       "--layout=reverse"
       "--border"
     ];
-  };
-
-  # Kitty terminal (required for Hyprland)
-  programs.kitty = {
-    enable = true;
-    settings = {
-      font_family = "JetBrainsMono Nerd Font";
-      font_size = 12;
-      background_opacity = "0.95";
-      confirm_os_window_close = 0;
-      enable_audio_bell = false;
-      window_padding_width = 4;
-      scrollback_lines = 10000;
-    };
   };
 
   # Starship prompt

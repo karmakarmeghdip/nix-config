@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  catppuccin,
   ...
 }:
 
@@ -34,12 +35,7 @@
     LC_TELEPHONE = "en_IN";
     LC_TIME = "en_IN";
   };
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
+  catppuccin.enable = true;
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.displayManager.sddm.enable = true;
