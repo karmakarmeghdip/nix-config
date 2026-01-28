@@ -22,14 +22,14 @@
         modules-right = [
           "pulseaudio"
           "network"
-          "cpu"
-          "memory"
+          "battery"
           "tray"
         ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
+          format = "";
         };
 
         "hyprland/window" = {
@@ -38,17 +38,8 @@
 
         clock = {
           format = "{:%H:%M}";
-          format-alt = "{:%Y-%m-%d %H:%M}";
+          format-alt = "{:%Y-%m-%d}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
-        };
-
-        cpu = {
-          format = "{}% ";
-          interval = 1;
-        };
-
-        memory = {
-          format = "{used:0.1f}G/{total:0.1f}G ";
         };
 
         battery = {
@@ -57,32 +48,33 @@
             critical = 15;
           };
           format = "{icon} {capacity}%";
-          format-charging = " {capacity}%";
-          format-plugged = " {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = " {capacity}%";
+          format-alt = "{time} {icon}";
           format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
+            ""
+            ""
+            ""
+            ""
+            ""
           ];
         };
 
         network = {
-          format-wifi = " {signalStrength}%";
-          format-ethernet = " {ipaddr}";
+          format-wifi = "  {signalStrength}%";
+          format-ethernet = "  {ipaddr}";
           format-disconnected = "⚠ Disconnected";
           tooltip-format = "{ifname}: {ipaddr}";
         };
 
         pulseaudio = {
-          format = "{icon} {volume}%";
-          format-muted = " Muted";
+          format = "{icon}  {volume}%";
+          format-muted = "";
           format-icons = {
             default = [
-              ""
-              ""
-              ""
+              ""
+              ""
+              ""
             ];
           };
           on-click = "pavucontrol";
@@ -102,7 +94,7 @@
       }
 
       window#waybar {
-        background: transparent;
+        background: rgba(30, 30, 46, 0.5);
       }
 
       tooltip {
@@ -124,12 +116,13 @@
       #workspaces button {
         padding: 0 5px;
         color: @subtext0;
-        border-radius: 10px;
+        background: transparent;
+        border-radius: 50%;
       }
 
       #workspaces button.active {
-        color: @base;
-        background: @mauve;
+        color: @mauve;
+        background: transparent;
       }
 
       #workspaces button.focused {
@@ -150,8 +143,6 @@
       #window,
       #clock,
       #battery,
-      #cpu,
-      #memory,
       #disk,
       #temperature,
       #backlight,
@@ -196,14 +187,6 @@
         animation-timing-function: linear;
         animation-iteration-count: infinite;
         animation-direction: alternate;
-      }
-
-      #cpu {
-        color: @sapphire;
-      }
-
-      #memory {
-        color: @sky;
       }
 
       #network {

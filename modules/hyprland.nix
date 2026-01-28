@@ -27,6 +27,9 @@
       # Basic Hyprland configuration
       # Customize these according to your preferences
       "$mod" = "SUPER";
+      layerrule = [
+        "blur on, match:namespace waybar"
+      ];
       bind = [
         "$mod, Return, exec, kitty"
         "$mod, Q, killactive"
@@ -82,8 +85,8 @@
         rounding = 10;
         blur = {
           enabled = true;
-          size = 3;
-          passes = 1;
+          size = 10;
+          passes = 3;
         };
         shadow = {
           enabled = false;
