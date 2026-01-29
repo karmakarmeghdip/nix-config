@@ -29,8 +29,6 @@
   # Packages that don't have dedicated programs.* modules
   home.packages = with pkgs; [
     # Development tools
-    nixd
-    nixfmt
     nodejs
     bun
     gemini-cli-bin
@@ -60,6 +58,7 @@
   ];
 
   catppuccin.enable = true;
+  catppuccin.cursors.enable = true;
 
   # Shell aliases (applied to all shells)
   home.shellAliases = {
@@ -95,12 +94,6 @@
   # AWS CLI
   programs.awscli = {
     enable = true;
-    settings = {
-      "default" = {
-        region = "us-east-1";
-        output = "json";
-      };
-    };
   };
 
   # Bat - cat replacement with syntax highlighting

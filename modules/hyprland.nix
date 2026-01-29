@@ -11,19 +11,6 @@
       # Monitor config
       monitor = "HDMI-A-2, 2560x1440@120, 0x0, 1";
 
-      exec-once = [
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-      ];
-      env = [
-        "HYPRCURSOR_THEME,Lilith_hyprcursor"
-        "HYPRCURSOR_SIZE,32"
-        "XCURSOR_THEME,Lilith_XCursor"
-        "XCURSOR_SIZE,32"
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_SESSION_DESKTOP,Hyprland"
-      ];
-
       # Basic Hyprland configuration
       # Customize these according to your preferences
       "$mod" = "SUPER";
