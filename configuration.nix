@@ -52,6 +52,9 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  # Required for Noctalia shell power profile feature
+  services.tuned.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.meghdip = {
     isNormalUser = true;

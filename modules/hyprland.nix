@@ -4,6 +4,17 @@
   ...
 }:
 
+let
+  # Helper function for noctalia IPC calls
+  noctalia =
+    cmd:
+    [
+      "noctalia-shell"
+      "ipc"
+      "call"
+    ]
+    ++ (pkgs.lib.splitString " " cmd);
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -15,14 +26,14 @@
       # Customize these according to your preferences
       "$mod" = "SUPER";
       layerrule = [
-        "blur on, match:namespace waybar"
+        "blur on, match:namespace noctalia"
       ];
       bind = [
         "$mod, Return, exec, kitty"
         "$mod, Q, killactive"
-        "$mod, D, exec, fuzzel" # Application launcher
+        "$mod, D, exec, noctalia-shell ipc call launcher toggle" # Noctalia launcher
         "$mod, M, exit"
-        "$mod, L, exec, hyprlock"
+        "$mod, L, exec, noctalia-shell ipc call lockScreen lock" # Noctalia lock screen
         "$mod, V, togglefloating"
         "$mod, F, fullscreen"
         "$mod, P, pseudo"
@@ -57,6 +68,17 @@
 
         # Screenshots
         "$mod, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+
+        # Noctalia session menu (power menu)
+        "$mod SHIFT, M, exec, noctalia-shell ipc call sessionMenu toggle"
+      ];
+      # Volume/brightness keys using noctalia OSD
+      bindle = [
+        ", XF86AudioRaiseVolume, exec, noctalia-shell ipc call volume increase"
+        ", XF86AudioLowerVolume, exec, noctalia-shell ipc call volume decrease"
+        ", XF86AudioMute, exec, noctalia-shell ipc call volume muteOutput"
+        ", XF86MonBrightnessUp, exec, noctalia-shell ipc call brightness increase"
+        ", XF86MonBrightnessDown, exec, noctalia-shell ipc call brightness decrease"
       ];
       bindm = [
         "$mod, mouse:272, movewindow"
