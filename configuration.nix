@@ -42,7 +42,7 @@
   # Display manager - sysc-greet (Wayland-native)
   services.sysc-greet = {
     enable = true;
-    compositor = "hyprland";
+    # compositor = "hyprland";
   };
 
   services.pipewire = {
@@ -57,7 +57,11 @@
   # Required for Noctalia shell power profile feature
   services.tuned.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # GNOME Keyring for secret storage (used by VSCode, browsers, etc.)
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
+  # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.meghdip = {
     isNormalUser = true;
     uid = 1000;
@@ -67,7 +71,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-    ]; # Enable ‘sudo’ for the user.
+    ]; # Enable 'sudo' for the user.
   };
 
   # List packages installed in system profile.
@@ -84,11 +88,6 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
   ];
-
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
 
   programs.nix-ld = {
     enable = true;

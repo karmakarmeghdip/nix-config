@@ -19,6 +19,10 @@
       url = "github:Nomadcxx/sysc-greet";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -28,6 +32,7 @@
       catppuccin,
       noctalia,
       sysc-greet,
+      zen-browser,
       ...
     }@inputs:
     {

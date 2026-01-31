@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -35,6 +36,16 @@
 
   # Packages that don't have dedicated programs.* modules
   home.packages = with pkgs; [
+    # Browsers
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+    # Gaming
+    heroic
+    protonup-qt
+
+    # System monitoring
+    amdgpu_top
+
     # Development tools
     nodejs
     bun
@@ -88,6 +99,12 @@
         ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
       '';
     };
+  };
+
+  # GNOME Keyring - manages secrets for applications
+  services.gnome-keyring = {
+    enable = true;
+    components = [ "secrets" ];
   };
 
   # Shell aliases (applied to all shells)
