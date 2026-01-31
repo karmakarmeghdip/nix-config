@@ -39,9 +39,11 @@
   catppuccin.cache.enable = true;
   catppuccin.cursors.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
+  # Display manager - sysc-greet (Wayland-native)
+  services.sysc-greet = {
+    enable = true;
+    compositor = "hyprland";
+  };
 
   services.pipewire = {
     enable = true;
@@ -74,8 +76,13 @@
     wget
     git
     fastfetch
-    firefox
     kitty
+  ];
+
+  # System fonts (including CJK support for Japanese/Korean/Chinese)
+  fonts.packages = with pkgs; [
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
   ];
 
   programs.appimage = {

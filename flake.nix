@@ -15,6 +15,10 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sysc-greet = {
+      url = "github:Nomadcxx/sysc-greet";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -23,6 +27,7 @@
       home-manager,
       catppuccin,
       noctalia,
+      sysc-greet,
       ...
     }@inputs:
     {
@@ -34,6 +39,7 @@
             ./hardware-configuration.nix
             ./configuration.nix
             catppuccin.nixosModules.catppuccin
+            sysc-greet.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

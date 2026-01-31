@@ -59,6 +59,7 @@
 
     # System tools
     blueman
+    cliphist # Clipboard history manager for Wayland (used by noctalia)
     grim
     slurp
     wl-clipboard
@@ -385,6 +386,5 @@
   programs.vscode = {
     enable = true;
   };
-
 
 }

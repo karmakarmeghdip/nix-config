@@ -25,18 +25,33 @@
         image_quality = 75;
         sixel_fraction = 15;
         ueberzug_scale = 1;
-        ueberzug_offset = [ 0 0 0 0 ];
+        ueberzug_offset = [
+          0
+          0
+          0
+          0
+        ];
       };
 
       opener = {
         edit = [
-          { run = "hx $@"; block = true; }
+          {
+            run = "hx $@";
+            block = true;
+          }
         ];
         play = [
-          { run = "mpv $@"; orphan = true; for = "unix"; }
+          {
+            run = "mpv $@";
+            orphan = true;
+            for = "unix";
+          }
         ];
         open = [
-          { run = "xdg-open $@"; desc = "Open"; }
+          {
+            run = "xdg-open $@";
+            desc = "Open";
+          }
         ];
       };
     };
