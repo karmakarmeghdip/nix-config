@@ -5,6 +5,10 @@
 }:
 
 {
+  # Ensure all Wayland services wait for Hyprland to be fully ready
+  # This fixes race conditions where services start before the Wayland socket exists
+  wayland.systemd.target = "hyprland-session.target";
+
   # Import modular configurations
   imports = [
     ./modules/hyprland.nix
@@ -61,6 +65,28 @@
 
   catppuccin.enable = true;
   catppuccin.cursors.enable = true;
+
+  # GTK theming
+  gtk.enable = true;
+
+  # Darkman service - provides XDG portal Settings interface for dark mode
+  # This is required for browsers to detect dark mode on standalone WMs
+  services.darkman = {
+    enable = true;
+    settings = {
+      usegeoclue = false;
+    };
+    darkModeScripts = {
+      gtk-theme = ''
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+      '';
+    };
+    lightModeScripts = {
+      gtk-theme = ''
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+      '';
+    };
+  };
 
   # Shell aliases (applied to all shells)
   home.shellAliases = {

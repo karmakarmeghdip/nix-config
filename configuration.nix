@@ -98,6 +98,9 @@
 
   programs.fish.enable = true;
 
+  # Enable dconf for GTK settings (required for portal color-scheme detection)
+  programs.dconf.enable = true;
+
   programs.hyprland.enable = true;
 
   xdg.portal = {
@@ -115,6 +118,8 @@
           "hyprland"
           "gtk"
         ];
+        # Route Settings interface to darkman for color-scheme detection
+        "org.freedesktop.impl.portal.Settings" = [ "darkman" ];
       };
     };
   };
