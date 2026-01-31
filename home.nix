@@ -20,6 +20,7 @@
     ./modules/helix.nix
     ./modules/hyprlock.nix
     ./modules/kitty.nix
+    ./modules/yazi.nix
     ./modules/noctalia.nix
   ];
 
@@ -385,6 +386,5 @@
     enable = true;
   };
 
-  services.network-manager-applet.enable = true;
-  services.blueman-applet.enable = true;
+
 }
