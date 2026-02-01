@@ -42,7 +42,7 @@
   # Display manager - sysc-greet (Wayland-native)
   services.sysc-greet = {
     enable = true;
-    # compositor = "hyprland";
+    compositor = "hyprland";
   };
 
   services.pipewire = {
@@ -60,6 +60,9 @@
   # GNOME Keyring for secret storage (used by VSCode, browsers, etc.)
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
+
+  # Polkit for privilege escalation dialogs
+  security.polkit.enable = true;
 
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.meghdip = {

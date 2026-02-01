@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   inputs,
   ...
 }:
@@ -46,6 +47,10 @@
     # System monitoring
     amdgpu_top
 
+    # File manager
+    nemo-with-extensions
+    gvfs # Virtual filesystem support (trash, MTP, network mounts)
+
     # Development tools
     nodejs
     bun
@@ -80,7 +85,24 @@
   catppuccin.cursors.enable = true;
 
   # GTK theming
-  gtk.enable = true;
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-GTK-Mauve-Dark";
+      package = pkgs.magnetic-catppuccin-gtk.override {
+        accent = [ "mauve" ];
+        shade = "dark";
+        size = "standard";
+      };
+    };
+    iconTheme = lib.mkForce {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "mauve";
+      };
+    };
+  };
 
   # Darkman service - provides XDG portal Settings interface for dark mode
   # This is required for browsers to detect dark mode on standalone WMs
@@ -105,6 +127,35 @@
   services.gnome-keyring = {
     enable = true;
     components = [ "secrets" ];
+  };
+
+  # Polkit authentication agent for privilege escalation dialogs
+  services.hyprpolkitagent.enable = true;
+
+  # Nemo (Files) - minimal rice-y config
+  dconf.settings = {
+    "org/nemo/preferences" = {
+      default-folder-viewer = "icon-view";
+      show-hidden-files = false;
+      show-image-thumbnails = "always";
+      click-policy = "single";
+      show-full-path-titles = false;
+    };
+    "org/nemo/icon-view" = {
+      default-zoom-level = "small";
+    };
+    "org/nemo/window-state" = {
+      geometry = "900x600+100+100";
+      maximized = false;
+      start-with-sidebar = true;
+      start-with-menu-bar = false;
+      start-with-status-bar = false;
+    };
+    # Set icon theme for GNOME/GTK apps
+    "org/gnome/desktop/interface" = {
+      icon-theme = "Papirus-Dark";
+      color-scheme = "prefer-dark";
+    };
   };
 
   # Shell aliases (applied to all shells)
