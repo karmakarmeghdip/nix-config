@@ -83,6 +83,14 @@
 
   catppuccin.enable = true;
   catppuccin.cursors.enable = true;
+  catppuccin.accent = "mauve";
+
+  # QT theming (for hyprpolkitagent and other QT apps)
+  qt = {
+    enable = true;
+    style.name = "kvantum";
+  };
+  catppuccin.kvantum.enable = true;
 
   # GTK theming
   gtk = {
