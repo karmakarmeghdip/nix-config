@@ -6,6 +6,7 @@
     enableBashIntegration = true;
     enableFishIntegration = true;
     enableZshIntegration = true;
+    shellWrapperName = "y";
 
     settings = {
       manager = {
