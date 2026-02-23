@@ -54,7 +54,7 @@
     # Development tools
     nodejs
     bun
-    gemini-cli-bin
+    gemini-cli
     zed-editor
     antigravity
     opencode
