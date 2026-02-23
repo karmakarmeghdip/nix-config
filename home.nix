@@ -57,6 +57,7 @@
     gemini-cli
     zed-editor
     antigravity
+    vscode
     opencode
 
     # CLI utilities
@@ -456,11 +457,6 @@
         error_symbol = "[✗](bold red)";
       };
     };
-  };
-
-  # Vscode
-  programs.vscode = {
-    enable = true;
   };
 
   # XDG MIME type associations
