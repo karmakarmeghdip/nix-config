@@ -160,8 +160,10 @@
     settings = {
       PasswordAuthentication = true;
       PermitRootLogin = "no";
+      X11Forwarding = true;
     };
   };
+  programs.ssh.setXAuthLocation = true;
 
   # Open SSH port in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];
