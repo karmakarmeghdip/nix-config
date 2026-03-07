@@ -24,6 +24,7 @@
     ./modules/kitty.nix
     ./modules/yazi.nix
     ./modules/noctalia.nix
+    ./modules/tmux.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -59,6 +60,9 @@
     antigravity
     vscode
     opencode
+
+    # Tmux session manager (fuzzy switch/create sessions with fzf)
+    sesh
 
     # CLI utilities
     aria2
