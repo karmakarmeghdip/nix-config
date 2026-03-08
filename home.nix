@@ -60,6 +60,7 @@
     antigravity
     vscode
     opencode
+    glow
 
     # Tmux session manager (fuzzy switch/create sessions with fzf)
     sesh
