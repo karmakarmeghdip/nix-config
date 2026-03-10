@@ -47,6 +47,16 @@
     compositor = "hyprland";
   };
 
+  # services.kmscon = {
+  #   enable = true;
+  #   fonts = [
+  #     {
+  #       name = "ZedMono Nerd Font";
+  #       package = pkgs.nerd-fonts.zed-mono;
+  #     }
+  #   ];
+  # };
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;
