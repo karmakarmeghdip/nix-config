@@ -42,7 +42,7 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Gaming
-    heroic
+    # heroic
     protonup-qt
 
     # System monitoring
