@@ -57,6 +57,7 @@
     bun
     gemini-cli
     zed-editor
+    emacs
     antigravity
     vscode
     opencode
