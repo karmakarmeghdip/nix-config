@@ -110,6 +110,8 @@
         size = "standard";
       };
     };
+    # Explicitly set GTK4 theme to match GTK3 theme (silences deprecation warning)
+    gtk4.theme = config.gtk.theme;
     iconTheme = lib.mkForce {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {

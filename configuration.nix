@@ -17,6 +17,9 @@
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
+  # Enable nftables (modern replacement for iptables)
+  networking.nftables.enable = true;
+
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -146,6 +149,10 @@
   };
 
   virtualisation.podman.enable = true;
+  
+  # Waydroid with nftables support
+  virtualisation.waydroid.enable = true;
+  virtualisation.waydroid.package = pkgs.waydroid-nftables;
 
   nixpkgs.config.allowUnfree = true;
 
