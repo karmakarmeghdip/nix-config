@@ -6,7 +6,10 @@
 }:
 
 {
-  imports = [ ./modules/samba.nix ];
+  imports = [
+    ./modules/samba.nix
+    ./modules/neovim/module.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -49,16 +52,6 @@
     enable = true;
     compositor = "hyprland";
   };
-
-  # services.kmscon = {
-  #   enable = true;
-  #   fonts = [
-  #     {
-  #       name = "ZedMono Nerd Font";
-  #       package = pkgs.nerd-fonts.zed-mono;
-  #     }
-  #   ];
-  # };
 
   services.pipewire = {
     enable = true;
@@ -117,7 +110,6 @@
 
   programs.steam = {
     enable = true;
-
   };
 
   programs.fish.enable = true;
@@ -149,7 +141,7 @@
   };
 
   virtualisation.podman.enable = true;
-  
+
   # Waydroid with nftables support
   virtualisation.waydroid.enable = true;
   virtualisation.waydroid.package = pkgs.waydroid-nftables;

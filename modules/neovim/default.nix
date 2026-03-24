@@ -1,0 +1,22 @@
+{ lib, ... }:
+lib.mkMerge [
+  # Core settings
+  {
+    vim.theme = {
+      enable = true;
+      name = "catppuccin";
+      style = "mocha";
+      transparent = true;
+    };
+    vim.opts.tabstop = 2;
+    vim.opts.shiftwidth = 2;
+
+    vim.statusline.lualine.enable = true;
+    vim.telescope.enable = true;
+    vim.autocomplete.nvim-cmp.enable = true;
+
+    vim.binds.whichKey.enable = true;
+  }
+  # Language-specific settings
+  (import ./languages.nix)
+]

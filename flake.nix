@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,7 +46,6 @@
       catppuccin,
       noctalia,
       sysc-greet,
-      zen-browser,
       ...
     }@inputs:
     {
@@ -55,6 +58,7 @@
             ./configuration.nix
             catppuccin.nixosModules.catppuccin
             sysc-greet.nixosModules.default
+            inputs.nvf.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -71,5 +75,17 @@
           ];
         };
       };
+
+      packages."x86_64-linux".default =
+        (inputs.nvf.lib.neovimConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [
+            {
+              config = import ./modules/neovim/default.nix {
+                lib = nixpkgs.legacyPackages."x86_64-linux".lib;
+              };
+            }
+          ];
+        }).neovim;
     };
 }

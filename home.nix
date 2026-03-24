@@ -14,17 +14,13 @@
   # Import modular configurations
   imports = [
     ./modules/hyprland.nix
-    # Commented out - functionality provided by Noctalia shell
-    # ./modules/waybar.nix
-    # ./modules/fuzzel.nix
-    # ./modules/mako.nix
-    # ./modules/hyprpaper.nix
-    ./modules/helix.nix
+   ./modules/helix.nix
     ./modules/hyprlock.nix
     ./modules/kitty.nix
     ./modules/yazi.nix
     ./modules/noctalia.nix
     ./modules/tmux.nix
+    ./modules/neovide.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
