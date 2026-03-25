@@ -82,11 +82,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774357444,
-        "narHash": "sha256-xISUnO64LVh+DhV6wMAbWJtWjw9eqUQBJE/NX4BcDlw=",
+        "lastModified": 1774379316,
+        "narHash": "sha256-0nGNxWDUH2Hzlj/R3Zf4FEK6fsFNB/dvewuboSRZqiI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "61463d50fca2f07b39231f88ebeffbf1617d2094",
+        "rev": "1eb0549a1ab3fe3f5acf86668249be15fa0e64f7",
         "type": "github"
       },
       "original": {
@@ -158,11 +158,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774355152,
-        "narHash": "sha256-/LZrWUvaM/arityH0KR2AopnEaXJqR9roSbKLNgFq0w=",
+        "lastModified": 1774442185,
+        "narHash": "sha256-dHxsDxA3kIn22eJZ+AhgIOJO6BLPH88DJfnviJ0le28=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "020dab63bf9f77beb8ade278e975be05701bf6c2",
+        "rev": "c960e17791bdd73300c37ebb1619bc8f3ee45ade",
         "type": "github"
       },
       "original": {
@@ -207,11 +207,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1774351089,
-        "narHash": "sha256-4zn+GKchKGc/wbPqny3L/zFSwaoMZZgNtg7ak5GIDCE=",
+        "lastModified": 1774375131,
+        "narHash": "sha256-d22VIgsDXagQQWnAnebYeQWGHlmF81YRwuGCzAgNZAQ=",
         "owner": "NotAShelf",
         "repo": "nvf",
-        "rev": "1d3730f4cf4100bf06cdc89ac02060b67caee4d0",
+        "rev": "d847d401bea4dcb1478d02a61a3209fa8512f71d",
         "type": "github"
       },
       "original": {
