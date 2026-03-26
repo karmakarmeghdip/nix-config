@@ -62,9 +62,6 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  # Enable openrgb
-  services.hardware.openrgb.enable = true;
-
   # Required for Noctalia shell power profile feature
   services.tuned.enable = true;
 
