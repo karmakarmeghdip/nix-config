@@ -40,6 +40,7 @@
     # Gaming
     # heroic
     protonup-qt
+    lutris
 
     # System monitoring
     amdgpu_top
