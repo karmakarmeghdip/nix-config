@@ -36,13 +36,28 @@ in
         "$mod, L, exec, noctalia-shell ipc call lockScreen lock" # Noctalia lock screen
         "$mod, V, togglefloating"
         "$mod, F, fullscreen"
-        "$mod, P, pseudo"
+        "$mod, P, layoutmsg, promote" # Promote window to its own column
         "$mod, J, togglesplit"
-        # Move focus
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
+        # Move focus (using layoutmsg for scrolling layout)
+        "$mod, left, layoutmsg, focus l"
+        "$mod, right, layoutmsg, focus r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+        # Scrolling layout: Column resizing
+        "$mod, equal, layoutmsg, colresize +0.1"
+        "$mod, minus, layoutmsg, colresize -0.1"
+        "$mod CTRL, equal, layoutmsg, colresize +conf"
+        "$mod CTRL, minus, layoutmsg, colresize -conf"
+        # Scrolling layout: Swap columns
+        "$mod CTRL, left, layoutmsg, swapcol l"
+        "$mod CTRL, right, layoutmsg, swapcol r"
+        # Scrolling layout: Move layout by columns
+        "$mod ALT, left, layoutmsg, move -col"
+        "$mod ALT, right, layoutmsg, move +col"
+        # Scrolling layout: Maximize column horizontally
+        "$mod CTRL, F, layoutmsg, colresize 1.0"
+        # Note: Overview mode ($mod + O) requires hyprexpo plugin which has build issues
+        # Alternative: Use workspace switching ($mod + 1-0) or hyprctl commands
         # Workspaces
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
@@ -88,7 +103,15 @@ in
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        layout = "dwindle";
+        layout = "scrolling";
+      };
+      scrolling = {
+        column_width = 0.5;
+        focus_fit_method = 1;
+        follow_focus = true;
+        follow_min_visible = 0.4;
+        direction = "right";
+        fullscreen_on_one_column = true;
       };
       decoration = {
         rounding = 10;

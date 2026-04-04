@@ -6,7 +6,6 @@ lib.mkMerge [
       enable = true;
       name = "catppuccin";
       style = "mocha";
-      # transparent = true;
     };
     vim.ui.borders.enable = true;
     vim.opts.tabstop = 2;

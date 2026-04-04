@@ -14,7 +14,7 @@
   # Import modular configurations
   imports = [
     ./modules/hyprland.nix
-   ./modules/helix.nix
+    ./modules/helix.nix
     ./modules/hyprlock.nix
     ./modules/kitty.nix
     ./modules/yazi.nix
@@ -57,7 +57,7 @@
     antigravity
     vscode
     opencode
-    glow
+    lmstudio
 
     # Tmux session manager (fuzzy switch/create sessions with fzf)
     sesh
