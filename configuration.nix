@@ -92,6 +92,7 @@
     git
     fastfetch
     kitty
+    waypipe
   ];
 
   # System fonts (including CJK support for Japanese/Korean/Chinese)
