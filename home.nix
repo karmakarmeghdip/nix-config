@@ -57,7 +57,6 @@
     antigravity
     vscode
     opencode
-    lmstudio
 
     # Tmux session manager (fuzzy switch/create sessions with fzf)
     sesh
