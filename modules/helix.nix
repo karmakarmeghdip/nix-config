@@ -5,6 +5,52 @@
     enable = true;
     defaultEditor = true;
 
+    settings = {
+      theme = "kaolin-dark";
+      editor = {
+        line-number = "relative";
+        lsp.display-messages = true;
+      };
+
+      editor = {
+        cursor-shape = {
+          normal = "block";
+          insert = "bar";
+          select = "underline";
+        };
+        statusline = {
+          left = [
+            "mode"
+            "spacer"
+            "version-control"
+            "spacer"
+          ];
+          center = [
+            "file-name"
+            "file-modification-indicator"
+          ];
+          right = [
+            "diagnostics"
+            "selections"
+            "position"
+            "spacer"
+            "position-percentage"
+            "spacer"
+            "file-type"
+            "spacer"
+            "spacer"
+            "spinner"
+          ];
+          separator = "";
+          mode = {
+            normal = "󰦨";
+            insert = "";
+            select = "";
+          };
+        };
+      };
+    };
+
     extraPackages = with pkgs; [
       # TypeScript/JavaScript
       vtsls
