@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  catppuccin.helix.enable = false;
   programs.helix = {
     enable = true;
     defaultEditor = true;
