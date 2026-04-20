@@ -45,10 +45,6 @@
     # System monitoring
     amdgpu_top
 
-    # File manager
-    nemo-with-extensions
-    gvfs # Virtual filesystem support (trash, MTP, network mounts)
-
     # Development tools
     nodejs
     bun
@@ -76,7 +72,6 @@
     lazydocker
 
     # System tools
-    blueman
     cliphist # Clipboard history manager for Wayland (used by noctalia)
     grim
     slurp
@@ -144,26 +139,8 @@
   # Polkit authentication agent for privilege escalation dialogs
   services.hyprpolkitagent.enable = true;
 
-  # Nemo (Files) - minimal rice-y config
+  # Set icon theme for GNOME/GTK apps
   dconf.settings = {
-    "org/nemo/preferences" = {
-      default-folder-viewer = "icon-view";
-      show-hidden-files = false;
-      show-image-thumbnails = "always";
-      click-policy = "single";
-      show-full-path-titles = false;
-    };
-    "org/nemo/icon-view" = {
-      default-zoom-level = "small";
-    };
-    "org/nemo/window-state" = {
-      geometry = "900x600+100+100";
-      maximized = false;
-      start-with-sidebar = true;
-      start-with-menu-bar = false;
-      start-with-status-bar = false;
-    };
-    # Set icon theme for GNOME/GTK apps
     "org/gnome/desktop/interface" = {
       icon-theme = "Papirus-Dark";
       color-scheme = "prefer-dark";
