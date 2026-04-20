@@ -6,7 +6,7 @@
     enableTreesitter = true;
     nix.enable = true;
     nix.lsp.servers = [ "nixd" ];
-    ts.enable = true;
+    typescript.enable = true;
     rust.enable = true;
   };
 }
