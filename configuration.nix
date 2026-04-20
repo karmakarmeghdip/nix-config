@@ -47,10 +47,10 @@
   catppuccin.cache.enable = true;
   catppuccin.cursors.enable = true;
 
-  # Display manager - sysc-greet (Wayland-native)
-  services.sysc-greet = {
+  # Display manager - SDDM
+  services.displayManager.sddm = {
     enable = true;
-    compositor = "hyprland";
+    wayland.enable = true;
   };
 
   services.pipewire = {
@@ -67,7 +67,7 @@
 
   # GNOME Keyring for secret storage (used by VSCode, browsers, etc.)
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
 
   # Polkit for privilege escalation dialogs
   security.polkit.enable = true;
@@ -118,6 +118,8 @@
   # Enable dconf for GTK settings (required for portal color-scheme detection)
   programs.dconf.enable = true;
 
+  # Desktop environments
+  services.desktopManager.plasma6.enable = true;
   programs.hyprland.enable = true;
 
   xdg.portal = {
