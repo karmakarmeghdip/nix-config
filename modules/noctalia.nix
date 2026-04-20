@@ -1,26 +1,14 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  # Noctalia Shell - Quickshell-based desktop shell
-  # Provides: bar, notifications, app launcher, wallpaper, lock screen, OSD
-  # Replaces: waybar, mako, fuzzel, hyprpaper
-
-  # Systemd service overrides for proper Wayland session handling
-  systemd.user.services.noctalia-shell = {
-    # Only start when the Wayland socket exists (prevents startup before Hyprland is ready)
-    Unit.ConditionEnvironment = "WAYLAND_DISPLAY";
-
-    Service = {
-      # Don't auto-restart when compositor dies (logout) - let hyprland-session.target handle lifecycle
-      Restart = lib.mkForce "no";
-    };
-  };
 
   programs.noctalia-shell = {
     enable = true;
-
-    # Enable systemd service for automatic startup
-    systemd.enable = true;
 
     settings = {
       settingsVersion = 46;

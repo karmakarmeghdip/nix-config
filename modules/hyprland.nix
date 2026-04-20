@@ -22,6 +22,11 @@ in
       # Monitor config
       monitor = "HDMI-A-2, 2560x1440@120, 0x0, 1";
 
+      # Start noctalia-shell on login
+      exec-once = [
+        "noctalia-shell"
+      ];
+
       # Basic Hyprland configuration
       # Customize these according to your preferences
       "$mod" = "SUPER";
