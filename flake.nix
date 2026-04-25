@@ -15,24 +15,6 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.noctalia-qs.follows = "noctalia-qs";
-    };
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.treefmt-nix.follows = "treefmt-nix";
-    };
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sysc-greet = {
-      url = "github:Nomadcxx/sysc-greet";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,8 +26,6 @@
       nixpkgs,
       home-manager,
       catppuccin,
-      noctalia,
-      sysc-greet,
       ...
     }@inputs:
     {
@@ -57,7 +37,6 @@
             ./hardware-configuration.nix
             ./configuration.nix
             catppuccin.nixosModules.catppuccin
-            sysc-greet.nixosModules.default
             inputs.nvf.nixosModules.default
             home-manager.nixosModules.home-manager
             {
@@ -68,7 +47,6 @@
                 imports = [
                   ./home.nix
                   catppuccin.homeModules.catppuccin
-                  noctalia.homeModules.default
                 ];
               };
             }

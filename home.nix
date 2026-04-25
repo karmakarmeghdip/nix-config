@@ -7,18 +7,11 @@
 }:
 
 {
-  # Ensure all Wayland services wait for Hyprland to be fully ready
-  # This fixes race conditions where services start before the Wayland socket exists
-  wayland.systemd.target = "hyprland-session.target";
-
   # Import modular configurations
   imports = [
-    ./modules/hyprland.nix
     ./modules/helix.nix
-    ./modules/hyprlock.nix
     ./modules/kitty.nix
     ./modules/yazi.nix
-    ./modules/noctalia.nix
     ./modules/tmux.nix
     ./modules/neovide.nix
   ];
@@ -48,9 +41,7 @@
     # Development tools
     nodejs
     bun
-    gemini-cli
     zed-editor
-    antigravity
     vscode
     opencode
 
@@ -59,11 +50,7 @@
 
     # CLI utilities
     aria2
-    cabextract
-    inxi
-    speedtest-cli
     typst
-    zsync
     fx # JSON viewer
     vivid # LS_COLORS generator
 
@@ -71,23 +58,11 @@
     distrobox
     lazydocker
 
-    # System tools
-    cliphist # Clipboard history manager for Wayland (used by noctalia)
-    grim
-    slurp
-    wl-clipboard
   ];
 
   catppuccin.enable = true;
   catppuccin.cursors.enable = true;
   catppuccin.accent = "mauve";
-
-  # QT theming (for hyprpolkitagent and other QT apps)
-  qt = {
-    enable = true;
-    style.name = "kvantum";
-  };
-  catppuccin.kvantum.enable = true;
 
   # GTK theming
   gtk = {
@@ -108,42 +83,6 @@
         flavor = "mocha";
         accent = "mauve";
       };
-    };
-  };
-
-  # Darkman service - provides XDG portal Settings interface for dark mode
-  # This is required for browsers to detect dark mode on standalone WMs
-  services.darkman = {
-    enable = true;
-    settings = {
-      usegeoclue = false;
-    };
-    darkModeScripts = {
-      gtk-theme = ''
-        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-      '';
-    };
-    lightModeScripts = {
-      gtk-theme = ''
-        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
-      '';
-    };
-  };
-
-  # GNOME Keyring - manages secrets for applications
-  services.gnome-keyring = {
-    enable = true;
-    components = [ "secrets" ];
-  };
-
-  # Polkit authentication agent for privilege escalation dialogs
-  services.hyprpolkitagent.enable = true;
-
-  # Set icon theme for GNOME/GTK apps
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      icon-theme = "Papirus-Dark";
-      color-scheme = "prefer-dark";
     };
   };
 
@@ -220,7 +159,7 @@
     enable = true;
     settings = {
       init.defaultBranch = "main";
-      pull.rebase = true;
+      pull.rebase = false;
       push.autoSetupRemote = true;
     };
   };

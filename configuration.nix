@@ -65,13 +65,6 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  # Required for Noctalia shell power profile feature
-  services.tuned.enable = true;
-
-  # GNOME Keyring for secret storage (used by VSCode, browsers, etc.)
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.sddm.enableGnomeKeyring = true;
-
   # Polkit for privilege escalation dialogs
   security.polkit.enable = true;
 
@@ -94,8 +87,6 @@
     wget
     git
     fastfetch
-    kitty
-    waypipe
   ];
 
   # System fonts (including CJK support for Japanese/Korean/Chinese)
@@ -118,34 +109,9 @@
 
   programs.fish.enable = true;
 
-  # Enable dconf for GTK settings (required for portal color-scheme detection)
-  programs.dconf.enable = true;
-
   # Desktop environments
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = [ pkgs.kdePackages.discover ];
-  programs.hyprland.enable = true;
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
-    config = {
-      common = {
-        default = [ "gtk" ];
-      };
-      hyprland = {
-        default = [
-          "hyprland"
-          "gtk"
-        ];
-        # Route Settings interface to darkman for color-scheme detection
-        "org.freedesktop.impl.portal.Settings" = [ "darkman" ];
-      };
-    };
-  };
 
   virtualisation.podman.enable = true;
 
@@ -159,16 +125,6 @@
     "nix-command"
     "flakes"
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh = {
