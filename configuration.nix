@@ -19,6 +19,9 @@
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
+  networking.networkmanager.plugins = with pkgs; [
+    networkmanager-openvpn
+  ];
 
   # Enable nftables (modern replacement for iptables)
   networking.nftables.enable = true;
