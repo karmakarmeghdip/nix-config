@@ -6,13 +6,11 @@
 }:
 
 {
-  imports = [
-    ./modules/samba.nix
-    ./modules/neovim/module.nix
-  ];
+  imports = [ ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 2;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -64,6 +62,7 @@
   hardware.enableRedistributableFirmware = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  hardware.steam-hardware.enable = true;
 
   # Polkit for privilege escalation dialogs
   security.polkit.enable = true;
@@ -87,6 +86,7 @@
     wget
     git
     fastfetch
+    libgbm
   ];
 
   # System fonts (including CJK support for Japanese/Korean/Chinese)
@@ -103,8 +103,10 @@
     ];
   };
 
-  programs.steam = {
+  programs.neovim = {
     enable = true;
+    viAlias = true;
+    vimAlias = true;
   };
 
   programs.fish.enable = true;
@@ -112,6 +114,27 @@
   # Desktop environments
   services.desktopManager.plasma6.enable = true;
   environment.plasma6.excludePackages = [ pkgs.kdePackages.discover ];
+
+  # Flatpak support
+  services.flatpak.enable = true;
+
+  # Allow Flatpak apps to follow symlinks into the Nix store (e.g. for GTK themes).
+  # Reset first to clear any previously set GTK_THEME or ~/.themes overrides,
+  # then grant read-only access to the entire Nix store.
+  system.activationScripts.flatpakNixStore = ''
+    ${pkgs.flatpak}/bin/flatpak override --system --reset
+    ${pkgs.flatpak}/bin/flatpak override --system \
+      --filesystem=/nix/store:ro
+  '';
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      kdePackages.xdg-desktop-portal-kde
+    ];
+    configPackages = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+  };
 
   virtualisation.podman.enable = true;
 
@@ -125,6 +148,13 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.auto-optimise-store = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh = {

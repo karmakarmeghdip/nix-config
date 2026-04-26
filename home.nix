@@ -27,14 +27,6 @@
 
   # Packages that don't have dedicated programs.* modules
   home.packages = with pkgs; [
-    # Browsers
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-
-    # Gaming
-    # heroic
-    protonup-qt
-    lutris
-
     # System monitoring
     amdgpu_top
 
@@ -86,12 +78,19 @@
     };
   };
 
+  # Symlink GTK theme into ~/.themes for Flatpak apps.
+  home.file.".themes/Catppuccin-GTK-Mauve-Dark".source =
+    "${config.gtk.theme.package}/share/themes/Catppuccin-GTK-Mauve-Dark";
+
   # Shell aliases (applied to all shells)
   home.shellAliases = {
     cat = "bat";
     top = "btop";
     lg = "lazygit";
     lzd = "lazydocker";
+    steam = "flatpak run com.valvesoftware.Steam";
+    zen = "flatpak run app.zen_browser.zen";
+    lutris = "flatpak run net.lutris.Lutris";
   };
 
   # ─────────────────────────────────────────────────────────────
@@ -232,29 +231,6 @@
     };
   };
 
-  # MPV - media player
-  programs.mpv = {
-    enable = true;
-    config = {
-      hwdec = "auto-safe";
-      vo = "gpu";
-      profile = "gpu-hq";
-      gpu-context = "wayland";
-      keep-open = true;
-      volume = 100;
-      volume-max = 200;
-      osd-bar = false;
-      border = false;
-    };
-    bindings = {
-      "l" = "seek 5";
-      "h" = "seek -5";
-      "j" = "seek -60";
-      "k" = "seek 60";
-      "S" = "screenshot";
-    };
-  };
-
   # Zoxide - smarter cd
   programs.zoxide = {
     enable = true;
@@ -382,10 +358,6 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "x-scheme-handler/http" = [ "zen.desktop" ];
-      "x-scheme-handler/https" = [ "zen.desktop" ];
-      "text/html" = [ "zen.desktop" ];
-      "application/xhtml+xml" = [ "zen.desktop" ];
     };
   };
 
