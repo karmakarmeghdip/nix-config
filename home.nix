@@ -35,7 +35,6 @@
     bun
     zed-editor
     vscode
-    opencode
 
     # Tmux session manager (fuzzy switch/create sessions with fzf)
     sesh
@@ -50,7 +49,12 @@
     distrobox
     lazydocker
 
-  ];
+  ]
+  ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+    gemini-cli
+    opencode
+    pi
+  ]);
 
   catppuccin.enable = true;
   catppuccin.cursors.enable = true;
