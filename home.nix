@@ -92,9 +92,6 @@
     top = "btop";
     lg = "lazygit";
     lzd = "lazydocker";
-    steam = "flatpak run com.valvesoftware.Steam";
-    zen = "flatpak run app.zen_browser.zen";
-    lutris = "flatpak run net.lutris.Lutris";
   };
 
   # ─────────────────────────────────────────────────────────────
