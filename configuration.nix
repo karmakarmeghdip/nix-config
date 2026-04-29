@@ -102,6 +102,8 @@
     ];
   };
 
+  programs.gamemode.enable = true;
+
   programs.neovim = {
     enable = true;
     viAlias = true;
