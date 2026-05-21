@@ -44,6 +44,7 @@
     typst
     fx # JSON viewer
     vivid # LS_COLORS generator
+    nix-index
 
     # Container/VM tools
     distrobox
@@ -53,6 +54,7 @@
   ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
     gemini-cli
     opencode
+    agent-browser
     pi
   ]);
 
