@@ -86,6 +86,7 @@
     wget
     git
     fastfetch
+    cloudflare-warp
   ];
 
   # System fonts (including CJK support for Japanese/Korean/Chinese)
@@ -118,6 +119,12 @@
 
   # Flatpak support
   services.flatpak.enable = true;
+
+  services.cloudflare-warp = {
+    enable = true;
+    openFirewall = true; # Opens required UDP ports
+  };
+
 
   # Allow Flatpak apps to follow symlinks into the Nix store (e.g. for GTK themes).
   # Reset first to clear any previously set GTK_THEME or ~/.themes overrides,
