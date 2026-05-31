@@ -45,6 +45,7 @@
   };
 
   catppuccin.enable = true;
+  catppuccin.autoEnable = true;
   catppuccin.cache.enable = true;
   catppuccin.cursors.enable = true;
 
