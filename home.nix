@@ -54,12 +54,14 @@
   ]
   ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
     gemini-cli
+    antigravity-cli
     opencode
     agent-browser
     pi
   ]);
 
   catppuccin.enable = true;
+  catppuccin.autoEnable = true;
   catppuccin.cursors.enable = true;
   catppuccin.accent = "mauve";
 
