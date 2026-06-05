@@ -53,7 +53,6 @@
 
   ]
   ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
-    gemini-cli
     antigravity-cli
     opencode
     agent-browser
