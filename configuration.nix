@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -7,6 +8,10 @@
 
 {
   imports = [ ];
+
+  # CachyOS kernel overlay for best performance
+  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -121,10 +126,17 @@
   # Flatpak support
   services.flatpak.enable = true;
 
+  # Warp VPN support
   services.cloudflare-warp = {
     enable = true;
     openFirewall = true; # Opens required UDP ports
   };
+
+  # Ollama vulkan support
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-vulkan;
+  }
 
 
   # Allow Flatpak apps to follow symlinks into the Nix store (e.g. for GTK themes).
