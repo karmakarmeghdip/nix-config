@@ -136,7 +136,7 @@
   services.ollama = {
     enable = true;
     package = pkgs.ollama-vulkan;
-  }
+  };
 
 
   # Allow Flatpak apps to follow symlinks into the Nix store (e.g. for GTK themes).
