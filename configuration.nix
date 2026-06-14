@@ -132,12 +132,6 @@
     openFirewall = true; # Opens required UDP ports
   };
 
-  # Ollama vulkan support
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-vulkan;
-  };
-
 
   # Allow Flatpak apps to follow symlinks into the Nix store (e.g. for GTK themes).
   # Reset first to clear any previously set GTK_THEME or ~/.themes overrides,
