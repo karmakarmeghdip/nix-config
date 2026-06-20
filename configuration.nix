@@ -97,6 +97,7 @@
 
   # System fonts (including CJK support for Japanese/Korean/Chinese)
   fonts.packages = with pkgs; [
+    inter
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
   ];
