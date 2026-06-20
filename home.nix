@@ -29,6 +29,7 @@
   home.packages = with pkgs; [
     # System monitoring
     amdgpu_top
+    mission-center
 
     # Development tools
     nodejs
