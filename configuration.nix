@@ -49,6 +49,19 @@
     LC_TIME = "en_IN";
   };
 
+  # Enable Japanese IME
+  i18n.inputMethod = {
+  type = "fcitx5";
+  enable = true;
+  fcitx5 = {
+    waylandFrontend = true;
+    addons = with pkgs; [
+      fcitx5-mozc
+      fcitx5-gtk
+    ];
+  };
+};
+
   catppuccin.enable = true;
   catppuccin.autoEnable = true;
   catppuccin.cache.enable = true;
