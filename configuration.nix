@@ -187,6 +187,8 @@
     "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
   ];
 
+  nix.settings.trusted-users = ["root" "@wheel"];
+
   nix.gc = {
     automatic = true;
     dates = "weekly";
