@@ -65,7 +65,7 @@
   catppuccin.enable = true;
   catppuccin.autoEnable = true;
   catppuccin.cache.enable = true;
-  catppuccin.cursors.enable = true;
+  # catppuccin.cursors.enable = true;
 
   # Display manager - SDDM
   services.displayManager.sddm = {

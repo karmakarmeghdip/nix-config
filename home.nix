@@ -14,6 +14,7 @@
     ./modules/yazi.nix
     ./modules/tmux.nix
     ./modules/neovide.nix
+    ./modules/t3code.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -52,6 +53,9 @@
     distrobox
     lazydocker
 
+    # Games
+    lutris
+
   ]
   ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
     antigravity-cli
@@ -62,7 +66,7 @@
 
   catppuccin.enable = true;
   catppuccin.autoEnable = true;
-  catppuccin.cursors.enable = true;
+  # catppuccin.cursors.enable = true;
   catppuccin.accent = "mauve";
 
   # GTK theming
