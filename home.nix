@@ -348,6 +348,11 @@
       "--layout=reverse"
       "--border"
     ];
+    # Let Atuin own Ctrl-R; clear fzf's history widget commands.
+    historyWidget = {
+      bash.command = "";
+      fish.command = "";
+    };
   };
 
   # Starship prompt
