@@ -38,6 +38,7 @@
     zed-editor
     vscode
     devenv
+    emacs
 
     # Tmux session manager (fuzzy switch/create sessions with fzf)
     sesh
