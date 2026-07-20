@@ -29,6 +29,14 @@
   # Enable nftables (modern replacement for iptables)
   networking.nftables.enable = true;
 
+  # Tailscale setup
+  services.tailscale.enable = true;
+  systemd.services.tailscaled.serviceConfig.Environment = [
+    "TS_DEBUG_FIREWALL_MODE=nftables"
+  ];
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
+
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -206,7 +214,8 @@
 
   # Open SSH port in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 59100 ];
-  networking.firewall.allowedUDPPorts = [ 59200 59100 ];
+  networking.firewall.allowedUDPPorts = [ 59200 59100 config.services.tailscale.port ];
+  networking.firewall.trustedInterfaces = [ config.services.tailscale.interfaceName ];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
