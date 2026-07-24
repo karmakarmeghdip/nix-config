@@ -7,7 +7,7 @@
     defaultEditor = true;
 
     settings = {
-      theme = "kaolin-dark";
+      theme = "catppuccin_mocha";
       editor = {
         line-number = "relative";
         lsp.display-messages = true;

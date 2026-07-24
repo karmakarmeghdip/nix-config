@@ -148,6 +148,13 @@
   # Flatpak support
   services.flatpak.enable = true;
 
+  # Appimage support
+  programs.appimage = {
+  enable = true;
+  binfmt = true;
+};
+
+
   # Warp VPN support
   services.cloudflare-warp = {
     enable = true;
