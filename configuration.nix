@@ -114,6 +114,7 @@
     git
     fastfetch
     cloudflare-warp
+    inputs.app-manager.packages.x86_64-linux.default
   ];
 
   # System fonts (including CJK support for Japanese/Korean/Chinese)

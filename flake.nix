@@ -17,6 +17,10 @@
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
     };
+    app-manager = {
+      url = "github:kem-a/AppManager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
