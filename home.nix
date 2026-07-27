@@ -14,7 +14,6 @@
     ./modules/yazi.nix
     ./modules/tmux.nix
     ./modules/neovide.nix
-    ./modules/t3code.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -27,43 +26,43 @@
   home.stateVersion = "25.11";
 
   # Packages that don't have dedicated programs.* modules
-  home.packages = with pkgs; [
-    # System monitoring
-    amdgpu_top
-    mission-center
+  home.packages =
+    with pkgs;
+    [
+      # System monitoring
+      amdgpu_top
+      mission-center
 
-    # Development tools
-    nodejs
-    bun
-    zed-editor
-    vscode
-    devenv
-    emacs
+      # Development tools
+      nodejs
+      bun
+      zed-editor
+      devenv
+      emacs
 
-    # Tmux session manager (fuzzy switch/create sessions with fzf)
-    sesh
+      # Tmux session manager (fuzzy switch/create sessions with fzf)
+      sesh
 
-    # CLI utilities
-    aria2
-    typst
-    fx # JSON viewer
-    vivid # LS_COLORS generator
-    nix-index
+      # CLI utilities
+      aria2
+      typst
+      fx # JSON viewer
+      vivid # LS_COLORS generator
+      nix-index
 
-    # Container/VM tools
-    distrobox
-    lazydocker
+      # Container/VM tools
+      distrobox
+      lazydocker
 
-    # Games
-    lutris
+      # Games
+      lutris
 
-  ]
-  ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
-    antigravity-cli
-    opencode
-    agent-browser
-    pi
-  ]);
+    ]
+    ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+      antigravity-cli
+      opencode
+      pi
+    ]);
 
   catppuccin.enable = true;
   catppuccin.autoEnable = true;
