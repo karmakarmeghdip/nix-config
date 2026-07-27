@@ -61,7 +61,7 @@
     ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
       antigravity-cli
       opencode
-      pi
+      codex
     ]);
 
   catppuccin.enable = true;
