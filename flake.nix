@@ -21,6 +21,10 @@
       url = "github:kem-a/AppManager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    paseo = {
+      url = "github:getpaseo/paseo";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

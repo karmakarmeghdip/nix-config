@@ -7,7 +7,9 @@
 }:
 
 {
-  imports = [ ];
+  imports = [
+    ./modules/paseo.nix
+  ];
 
   # CachyOS kernel overlay for best performance
   nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
@@ -59,16 +61,16 @@
 
   # Enable Japanese IME
   i18n.inputMethod = {
-  type = "fcitx5";
-  enable = true;
-  fcitx5 = {
-    waylandFrontend = true;
-    addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
+    type = "fcitx5";
+    enable = true;
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
+      ];
+    };
   };
-};
 
   catppuccin.enable = true;
   catppuccin.autoEnable = true;
@@ -151,17 +153,15 @@
 
   # Appimage support
   programs.appimage = {
-  enable = true;
-  binfmt = true;
-};
-
+    enable = true;
+    binfmt = true;
+  };
 
   # Warp VPN support
   services.cloudflare-warp = {
     enable = true;
     openFirewall = true; # Opens required UDP ports
   };
-
 
   # Allow Flatpak apps to follow symlinks into the Nix store (e.g. for GTK themes).
   # Reset first to clear any previously set GTK_THEME or ~/.themes overrides,
@@ -203,7 +203,10 @@
     "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
   ];
 
-  nix.settings.trusted-users = ["root" "@wheel"];
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
 
   nix.gc = {
     automatic = true;
@@ -221,8 +224,15 @@
   };
 
   # Open SSH port in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 59100 ];
-  networking.firewall.allowedUDPPorts = [ 59200 59100 config.services.tailscale.port ];
+  networking.firewall.allowedTCPPorts = [
+    22
+    59100
+  ];
+  networking.firewall.allowedUDPPorts = [
+    59200
+    59100
+    config.services.tailscale.port
+  ];
   networking.firewall.trustedInterfaces = [ config.services.tailscale.interfaceName ];
 
   # Copy the NixOS configuration file and link it from the resulting system

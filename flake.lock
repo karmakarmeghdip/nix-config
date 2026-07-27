@@ -288,6 +288,40 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1772963539,
+        "narHash": "sha256-9jVDGZnvCckTGdYT53d/EfznygLskyLQXYwJLKMPsZs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9dcb002ca1690658be4a04645215baea8b95f31d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "paseo": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1785153869,
+        "narHash": "sha256-LVNKJI81Q+iRxJGAdd5sA3Ie53jpMjjncSsClTTfM4k=",
+        "owner": "getpaseo",
+        "repo": "paseo",
+        "rev": "2acb10fce96ff65eae0cad9894ff7338139d417b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "getpaseo",
+        "repo": "paseo",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "app-manager": "app-manager",
@@ -295,7 +329,8 @@
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "paseo": "paseo"
       }
     },
     "systems": {

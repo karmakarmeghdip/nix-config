@@ -288,8 +288,10 @@
       gd = "git diff";
       gco = "git checkout";
       gb = "git branch";
-      # Home Manager stuff
-      nrs = "sudo nixos-rebuild switch --flake ~/nix-config";
+       # Home Manager stuff
+       nrs = "sudo nixos-rebuild switch --flake ~/nix-config";
+       # opencode (LLM CLI)
+       oc = "opencode";
     };
     functions = {
       # Quick directory creation and cd
