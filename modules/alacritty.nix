@@ -13,12 +13,13 @@
       };
       window = {
         # opacity = 0.85;
+        decorations = "None";
         padding = {
           x = 4;
           y = 4;
         };
       };
-      shell = {
+      terminal.shell = {
         program = "${pkgs.tmux}/bin/tmux";
         args = [
           "new-session"

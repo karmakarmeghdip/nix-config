@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  lib,
   inputs,
   ...
 }:
@@ -66,34 +65,7 @@
 
   catppuccin.enable = true;
   catppuccin.autoEnable = true;
-  # catppuccin.cursors.enable = true;
   catppuccin.accent = "mauve";
-
-  # GTK theming
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Catppuccin-GTK-Mauve-Dark";
-      package = pkgs.magnetic-catppuccin-gtk.override {
-        accent = [ "mauve" ];
-        shade = "dark";
-        size = "standard";
-      };
-    };
-    # Explicitly set GTK4 theme to match GTK3 theme (silences deprecation warning)
-    gtk4.theme = config.gtk.theme;
-    iconTheme = lib.mkForce {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "mauve";
-      };
-    };
-  };
-
-  # Symlink GTK theme into ~/.themes for Flatpak apps.
-  home.file.".themes/Catppuccin-GTK-Mauve-Dark".source =
-    "${config.gtk.theme.package}/share/themes/Catppuccin-GTK-Mauve-Dark";
 
   # Shell aliases (applied to all shells)
   home.shellAliases = {

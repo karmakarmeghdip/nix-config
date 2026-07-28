@@ -6,7 +6,7 @@
     shell = "${pkgs.fish}/bin/fish";
 
     # Sane defaults
-    prefix = "C-a";
+    prefix = "C-b";
     baseIndex = 1; # Start windows/panes at 1 (easier keyboard reach)
     keyMode = "vi";
     mouse = true;
@@ -114,7 +114,7 @@
         )\""
 
       # ── Status bar ─────────────────────────────────────────────────────────
-      set -g status-position top
+      set -g status-position bottom
       set -g status-interval 5
     '';
   };

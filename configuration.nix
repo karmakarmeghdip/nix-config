@@ -114,11 +114,15 @@
     fastfetch
     cloudflare-warp
     inputs.app-manager.packages.x86_64-linux.default
+    gnomeExtensions.user-themes
+    gnome-tweaks
   ];
 
-  # System fonts (including CJK support for Japanese/Korean/Chinese)
+  # System fonts for GNOME and general UI
   fonts.packages = with pkgs; [
     inter
+    cantarell-fonts # GNOME default UI font
+    liberation_ttf # Metric-compatible fallback for Arial/Times/Courier
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
   ];
