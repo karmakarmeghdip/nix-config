@@ -77,11 +77,8 @@
   catppuccin.cache.enable = true;
   # catppuccin.cursors.enable = true;
 
-  # Display manager - SDDM
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
+  # Display manager - GDM (GNOME)
+  services.displayManager.gdm.enable = true;
 
   services.pipewire = {
     enable = true;
@@ -144,9 +141,8 @@
 
   programs.fish.enable = true;
 
-  # Desktop environments
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = [ pkgs.kdePackages.discover ];
+  # Desktop environments - GNOME
+  services.desktopManager.gnome.enable = true;
 
   # Flatpak support
   services.flatpak.enable = true;
@@ -176,9 +172,8 @@
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gnome
     ];
-    configPackages = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
   };
 
   virtualisation.podman.enable = true;

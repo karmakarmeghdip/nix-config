@@ -5,7 +5,7 @@
     settings = {
       fork = true;
       font = {
-        normal = [];
+        normal = [ ];
         size = 18.0;
       };
     };

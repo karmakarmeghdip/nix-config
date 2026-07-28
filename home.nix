@@ -10,7 +10,7 @@
   # Import modular configurations
   imports = [
     ./modules/helix.nix
-    ./modules/kitty.nix
+    ./modules/alacritty.nix
     ./modules/yazi.nix
     ./modules/tmux.nix
     ./modules/neovide.nix
@@ -288,10 +288,10 @@
       gd = "git diff";
       gco = "git checkout";
       gb = "git branch";
-       # Home Manager stuff
-       nrs = "sudo nixos-rebuild switch --flake ~/nix-config";
-       # opencode (LLM CLI)
-       oc = "opencode";
+      # Home Manager stuff
+      nrs = "sudo nixos-rebuild switch --flake ~/nix-config";
+      # opencode (LLM CLI)
+      oc = "opencode";
     };
     functions = {
       # Quick directory creation and cd

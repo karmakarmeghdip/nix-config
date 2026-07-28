@@ -12,16 +12,16 @@
       border-radius = 10;
       border-size = 2;
       padding = "10";
-      
+
       # Layout
       width = 350;
       height = 150;
       margin = "10";
-      
+
       # Behavior
       default-timeout = 5000; # 5 seconds
       ignore-timeout = false;
-      
+
       # Grouping
       max-visible = 5;
       layer = "overlay";
@@ -32,10 +32,10 @@
     extraConfig = ''
       [urgency=low]
       border-color=#a6e3a1
-      
+
       [urgency=normal]
       border-color=#89b4fa
-      
+
       [urgency=critical]
       border-color=#f38ba8
       default-timeout=0

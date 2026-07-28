@@ -16,7 +16,6 @@ lib.mkMerge [
     vim.autocomplete.nvim-cmp.enable = true;
     vim.visuals.fidget-nvim.enable = true;
 
-
     vim.binds.whichKey.enable = true;
   }
   # Language-specific settings
