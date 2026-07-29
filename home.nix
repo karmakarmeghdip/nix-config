@@ -52,10 +52,6 @@
       # Container/VM tools
       distrobox
       lazydocker
-
-      # Games
-      lutris
-
     ]
     ++ (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
       antigravity-cli
