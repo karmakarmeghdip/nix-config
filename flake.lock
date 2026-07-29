@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785177849,
-        "narHash": "sha256-B8inPKh5esdLgUMH0Z57oIJQQZDWieSvHUhebwYWqDc=",
+        "lastModified": 1785310673,
+        "narHash": "sha256-RuYhBi/5S5SQafE373Udv8BKh0LLMwlNqTzobODABAc=",
         "owner": "kem-a",
         "repo": "AppManager",
-        "rev": "6c8c75c73382fd37f52ef87985cb88a717ac084b",
+        "rev": "8c3f44dcfcd1b070f344054faed8cbc23de19b4e",
         "type": "github"
       },
       "original": {
@@ -50,38 +50,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "bun2nix",
-        "type": "github"
-      }
-    },
-    "cachyos-kernel": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1785158249,
-        "narHash": "sha256-zM8SbqeC6GaFeHGclXNO3+JGTeyQ3o3IjRV+sw0OWgs=",
-        "owner": "CachyOS",
-        "repo": "linux-cachyos",
-        "rev": "74d5bae1a1598c188ca6df932d8db15cdbf41975",
-        "type": "github"
-      },
-      "original": {
-        "owner": "CachyOS",
-        "repo": "linux-cachyos",
-        "type": "github"
-      }
-    },
-    "cachyos-kernel-patches": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1785003520,
-        "narHash": "sha256-wArbhgKHjF1oJOzFVaHlz5rTxKPreb7ezbGbwQXTXJg=",
-        "owner": "CachyOS",
-        "repo": "kernel-patches",
-        "rev": "0fbc4adfec58c056d07adfc78d0e09bd32162853",
-        "type": "github"
-      },
-      "original": {
-        "owner": "CachyOS",
-        "repo": "kernel-patches",
         "type": "github"
       }
     },
@@ -167,11 +135,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785239295,
-        "narHash": "sha256-aYFoftXjm7Df7CAoR0XoMQjJ9rTZ/l9d1jr9EqD7sHM=",
+        "lastModified": 1785306346,
+        "narHash": "sha256-DScBkW0fOgpGPK2trNoX3ryLTlaC14+gglFo/BhGJ4g=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "42bb40f7aaab63a107b64a20c4a4ade6550758d0",
+        "rev": "e705714e918c3b11affcdd15db2cbe3a070420a0",
         "type": "github"
       },
       "original": {
@@ -189,11 +157,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1785221976,
-        "narHash": "sha256-n1PgEKstIBdMxilWJpqagnWNF3roP/Fucvdms1DpEFQ=",
+        "lastModified": 1785353276,
+        "narHash": "sha256-rpNw2Q4wBB7rRF+ld0u1/kNNw4r4FHQdua3fhSzL3C0=",
         "owner": "numtide",
         "repo": "llm-agents.nix",
-        "rev": "d4a6e87fd4b9d7f551b0d2aba1514213617502a5",
+        "rev": "636a7bcf2a0409982427f2180744e7c6ee8cdfa6",
         "type": "github"
       },
       "original": {
@@ -204,18 +172,16 @@
     },
     "nix-cachyos-kernel": {
       "inputs": {
-        "cachyos-kernel": "cachyos-kernel",
-        "cachyos-kernel-patches": "cachyos-kernel-patches",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts_2",
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1785178839,
-        "narHash": "sha256-eH1lMD3BQwYU7BvTQ16PO0pbdXIqVOG2cgxRxWF7SzI=",
+        "lastModified": 1785350152,
+        "narHash": "sha256-X0IW27ziG1/9bcU9Z3KC5Hx+YcJ9qRf6BXNQCPEdbtg=",
         "owner": "xddxdd",
         "repo": "nix-cachyos-kernel",
-        "rev": "352b768201fa050f617e92a89b1b7b84822903e2",
+        "rev": "c744ed90b77cfd9b60809854279eacef857909eb",
         "type": "github"
       },
       "original": {
@@ -258,11 +224,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1785152149,
-        "narHash": "sha256-vbH+CBdQn1k5xyEJE0m5In4lEXgZk9sjQHZdxjMgxN8=",
+        "lastModified": 1785307242,
+        "narHash": "sha256-ru0UgPKsj5gRJHkLVUY88sIymx4WPniZCtUJyldMtLs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "aac3a899cc6ce8d928dfc5818dafc093b7936010",
+        "rev": "255d738cbacb7f30ac8629e091538c4382841ac5",
         "type": "github"
       },
       "original": {
@@ -295,11 +261,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785239966,
-        "narHash": "sha256-sMK+DITI49bZKquvLub/5OHwFyJKYv3SK40u3U6g8xw=",
+        "lastModified": 1785343685,
+        "narHash": "sha256-ZVeq44tAr4e8ST/VuYQE9JR3tYxs5MqR6CYnckg3vQM=",
         "owner": "getpaseo",
         "repo": "paseo",
-        "rev": "fd7061a8b2bae685da53056cc986a71b362add7e",
+        "rev": "9e5accee3c688e2a766f56c76d24b6b03a07b72d",
         "type": "github"
       },
       "original": {
