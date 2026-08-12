@@ -52,6 +52,7 @@
       # Container/VM tools
       distrobox
       lazydocker
+      ptyxis
 
       # Games
       lutris
@@ -173,10 +174,10 @@
         };
       };
       git = {
-        pagers = [
+        diffRenderers = [
           {
             colorArg = "always";
-            pager = "delta --dark --paging=never";
+            command = "delta --dark --paging=never";
           }
         ];
       };
@@ -340,6 +341,45 @@
         success_symbol = "[➜](bold green)";
         error_symbol = "[✗](bold red)";
       };
+    };
+  };
+
+  # MangoHud - performance overlay for games
+  programs.mangohud = {
+    enable = true;
+    enableSessionWide = true;
+    settings = {
+      fps_limit = 0;
+      vsync = 1;
+      gpu_stats = true;
+      gpu_temp = true;
+      gpu_power = true;
+      gpu_core_clock = true;
+      cpu_stats = true;
+      cpu_temp = true;
+      cpu_power = true;
+      core_load = true;
+      fps = true;
+      frametime = true;
+      frame_timing = true;
+      vram = true;
+      ram = true;
+      vkbasalt = false;
+      no_display = false;
+      toggle_hud = "Shift_R+F12";
+      toggle_fps_limit = "Shift_R+F11";
+      position = "bottom-left";
+      background_alpha = 0.6;
+      table_columns = 8;
+      font_size = 16;
+      text_color = "CDD6F4";
+      background_color = "1E1E2E";
+      gpu_color = "89B4FA";
+      cpu_color = "CBA6F7";
+      vram_color = "A6E3A1";
+      ram_color = "F9E2AF";
+      frametime_color = "A6E3A1";
+      io_color = "FAB387";
     };
   };
 

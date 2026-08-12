@@ -139,6 +139,17 @@
 
   programs.gamescope.enable = true;
 
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    extraPackages = with pkgs; [
+      gamescope
+    ];
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
+
   programs.neovim = {
     enable = true;
     viAlias = true;
