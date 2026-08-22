@@ -62,7 +62,11 @@
       antigravity-cli
       opencode
       codex
-    ]);
+    ])
+    ++ [
+      # Custom-packaged desktop apps
+      (pkgs.callPackage ./pkgs/flow-desktop.nix { })
+    ];
 
   catppuccin.enable = true;
   catppuccin.autoEnable = true;
