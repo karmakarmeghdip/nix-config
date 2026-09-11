@@ -65,7 +65,7 @@
     ])
     ++ [
       # Custom-packaged desktop apps
-      (pkgs.callPackage ./pkgs/flow-desktop.nix { })
+      # (pkgs.callPackage ./pkgs/flow-desktop.nix { })
     ];
 
   catppuccin.enable = true;

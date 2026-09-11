@@ -19,16 +19,16 @@
           y = 4;
         };
       };
-      terminal.shell = {
-        program = "${pkgs.tmux}/bin/tmux";
-        args = [
-          "new-session"
-          "-A"
-          "-D"
-        ];
-      };
+      # terminal.shell = {
+      # program = "${pkgs.tmux}/bin/tmux";
+      # args = [
+      #   "new-session"
+      #   "-A"
+      #   "-D"
+      # ];
+      # };
       env = {
-        TERM = "tmux-256color";
+        # TERM = "tmux-256color";
       };
       cursor = {
         style = "Block";

@@ -8,7 +8,7 @@
 
 {
   imports = [
-    ./modules/paseo.nix
+    # ./modules/paseo.nix
   ];
 
   # CachyOS kernel overlay for best performance
@@ -63,12 +63,16 @@
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
+    package = lib.mkForce (
+      pkgs.qt6Packages.fcitx5-with-addons.override {
+        withConfigtool = false;
+        addons = with pkgs; [
+          fcitx5-mozc
+        ];
+      }
+    );
     fcitx5 = {
       waylandFrontend = true;
-      addons = with pkgs; [
-        fcitx5-mozc
-        fcitx5-gtk
-      ];
     };
   };
 
@@ -113,7 +117,7 @@
     git
     fastfetch
     cloudflare-warp
-    inputs.app-manager.packages.x86_64-linux.default
+    # inputs.app-manager.packages.x86_64-linux.default
     gnomeExtensions.user-themes
     gnome-tweaks
   ];
@@ -168,6 +172,11 @@
   programs.appimage = {
     enable = true;
     binfmt = true;
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: [
+        pkgs.libnghttp2
+      ];
+    };
   };
 
   # Warp VPN support
