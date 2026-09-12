@@ -255,26 +255,6 @@
         "type": "github"
       }
     },
-    "paseo": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1789145893,
-        "narHash": "sha256-jb2wZ52EHbVdPafAKcj+P3o0f3/LXB6rcpPkLFK+Um8=",
-        "owner": "getpaseo",
-        "repo": "paseo",
-        "rev": "fa93c4290eaa87ae58452ab6e2012f85ae6e0c6b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "getpaseo",
-        "repo": "paseo",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "app-manager": "app-manager",
@@ -282,8 +262,7 @@
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
-        "nixpkgs": "nixpkgs_3",
-        "paseo": "paseo"
+        "nixpkgs": "nixpkgs_3"
       }
     },
     "systems": {

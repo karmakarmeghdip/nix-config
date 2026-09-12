@@ -8,6 +8,7 @@
 
 {
   imports = [
+    ./modules/sunshine.nix
     # ./modules/paseo.nix
   ];
 
@@ -107,6 +108,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "input" # for Sunshine/uinput virtual input
     ]; # Enable 'sudo' for the user.
   };
 
