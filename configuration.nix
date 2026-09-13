@@ -119,7 +119,7 @@
     git
     fastfetch
     cloudflare-warp
-    # inputs.app-manager.packages.x86_64-linux.default
+    inputs.app-manager.packages.x86_64-linux.default
     gnomeExtensions.user-themes
     gnome-tweaks
   ];
